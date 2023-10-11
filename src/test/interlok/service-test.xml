@@ -11,68 +11,6 @@
   </test-client>
   <helpers/>
   <test-list>
-    <unique-id>one-drive-push-workflow@azure-graph-api-tests</unique-id>
-    <test>
-      <unique-id>one-drive-upload-tests</unique-id>
-      <test-case>
-        <unique-id>one-drive-upload-test</unique-id>
-        <input-message-provider>
-          <metadata-provider class="empty-metadata-provider"/>
-          <payload-provider class="inline-payload-provider">
-            <payload><![CDATA[Bacon ipsum dolor amet turkey shankle jerky, short ribs hamburger swine ball tip bresaola. Ribeye beef ribs picanha, tri-tip corned beef tail biltong spare ribs boudin sausage buffalo landjaeger capicola pork chop porchetta. Flank porchetta turkey cupim ball tip tri-tip ribeye, boudin strip steak chicken. Shankle filet mignon chicken, corned beef drumstick turducken strip steak spare ribs.
-
-Ham rump hamburger, drumstick beef ribs tail flank. Pastrami shankle chuck ham buffalo drumstick frankfurter pancetta. Brisket spare ribs leberkas chislic. Leberkas porchetta buffalo, picanha ham pork chop fatback pork loin ground round ribeye turkey pancetta pig. Pig pork chislic hamburger ground round, jowl burgdoggen. Landjaeger pancetta ground round turducken pork belly ribeye beef ribs ball tip burgdoggen filet mignon. Tail andouille jerky leberkas.
-
-Filet mignon pork loin cupim porchetta, turkey ham hock tail leberkas pig chuck jowl sausage andouille. Turducken tri-tip alcatra tail bresaola buffalo flank swine cupim biltong pork belly t-bone pancetta ham hock hamburger. Pig tri-tip cupim, filet mignon pork belly ham hock shankle andouille turducken. Tri-tip spare ribs shankle alcatra sausage burgdoggen cupim tail pastrami cow boudin turducken chislic. Chislic kielbasa ribeye, ham t-bone doner strip steak meatloaf salami. Prosciutto salami tongue jerky.
-
-Venison t-bone sausage kevin. Ham hock picanha bacon pastrami tongue shank short loin. Fatback ball tip kielbasa, salami burgdoggen cow pancetta pig flank. Chuck cow filet mignon picanha kevin chislic short ribs tri-tip beef flank sausage pastrami sirloin meatloaf. Shoulder capicola cupim pancetta, t-bone brisket pastrami hamburger corned beef chislic porchetta ground round short ribs. Turkey rump shankle, cow chislic turducken short loin burgdoggen corned beef ham pig chuck. Alcatra rump strip steak pork leberkas filet mignon andouille ground round chuck cupim.
-
-Porchetta bacon cow chuck pork loin. Pork loin turkey hamburger kielbasa short loin pastrami bacon sausage frankfurter brisket. Shankle shoulder cupim, chicken ground round meatloaf tri-tip beef tail pork belly bacon andouille hamburger porchetta short ribs. Filet mignon sirloin turducken pork short loin boudin frankfurter ball tip cupim, kevin bresaola venison. T-bone turkey pork loin venison landjaeger strip steak jowl ribeye flank leberkas shank. Shoulder pork chop ham hock kielbasa shankle hamburger.]]></payload>
-          </payload-provider>
-        </input-message-provider>
-        <assertions/>
-      </test-case>
-      <service-to-test>
-        <source class="default-config-file-source">
-          <file>file:///${service.tester.working.directory}/config/adapter.xml</file>
-        </source>
-        <preprocessors/>
-      </service-to-test>
-    </test>
-  </test-list>
-  <test-list>
-    <unique-id>one-drive-pull-workflow@azure-graph-api-tests</unique-id>
-    <test>
-      <unique-id>one-drive-download-tests</unique-id>
-      <test-case>
-        <unique-id>one-drive-download-test</unique-id>
-        <input-message-provider>
-          <metadata-provider class="empty-metadata-provider"/>
-          <payload-provider class="empty-payload-provider"/>
-        </input-message-provider>
-        <assertions>
-          <assert-payload-equals>
-            <payload><![CDATA[Bacon ipsum dolor amet ham hock meatloaf alcatra strip steak, rump tail ball tip. Tail ham hock leberkas landjaeger, t-bone filet mignon salami tri-tip pork chop spare ribs chuck ball tip. Ground round hamburger tail short ribs flank buffalo pastrami kevin venison pig pork belly. Pastrami ground round bacon, sirloin picanha bresaola tenderloin. Pancetta short loin pastrami short ribs tongue sausage ham prosciutto boudin pork belly. Capicola t-bone boudin corned beef leberkas chislic.
-
-Jerky turkey fatback short loin beef ribs corned beef pork ham venison. Fatback venison bacon filet mignon tail, bresaola landjaeger salami. Kielbasa ribeye biltong pork chop. Ham hock pork cow landjaeger. Bacon sirloin ribeye jowl, brisket shankle t-bone chislic ham leberkas pork chop ball tip ham hock short ribs shoulder.
-
-Beef bresaola landjaeger tail, chuck ball tip frankfurter t-bone tenderloin drumstick boudin turkey swine brisket. Pig beef frankfurter, pork loin beef ribs kielbasa ribeye pastrami. Jerky tail pig, picanha brisket beef spare ribs strip steak short loin corned beef. Tongue buffalo bacon kevin meatball ground round.
-
-Salami kevin swine jerky tri-tip. Shankle sausage leberkas ham bresaola landjaeger jowl buffalo picanha frankfurter prosciutto porchetta t-bone turducken meatloaf. Ham prosciutto brisket burgdoggen pork belly picanha. Pig short loin brisket bresaola, jerky landjaeger shankle beef ribs frankfurter. Chislic fatback capicola porchetta leberkas, chuck shank strip steak ham bresaola shankle prosciutto. Cow andouille bresaola, pork chop shoulder meatloaf fatback ham hock salami tail turkey rump pancetta flank.
-
-Bresaola ham hock sirloin boudin beef rump buffalo meatball doner pork chop beef ribs flank pork loin. Short loin spare ribs strip steak meatball jerky chuck beef pork, alcatra leberkas frankfurter porchetta drumstick. Filet mignon kielbasa pig, jerky turducken pancetta hamburger. Cow doner pork loin shoulder. Andouille meatloaf tongue drumstick ham hock pork.]]></payload>
-          </assert-payload-equals>
-        </assertions>
-      </test-case>
-      <service-to-test>
-        <source class="default-config-file-source">
-          <file>file:///${service.tester.working.directory}/config/adapter.xml</file>
-        </source>
-        <preprocessors/>
-      </service-to-test>
-    </test>
-  </test-list>
-  <test-list>
     <unique-id>Azure Cosmos DB Tests</unique-id>
     <test>
       <unique-id>cosmos db service@Cosmos DB wolkflow</unique-id>
