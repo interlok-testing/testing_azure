@@ -21,10 +21,12 @@ dependencies {
   interlokRuntime ("com.adaptris:interlok-azure-mail:$interlokVersion") { changing=true }
   interlokRuntime ("com.adaptris:interlok-azure-onedrive:$interlokVersion") { changing=true }
   interlokRuntime ("com.adaptris:interlok-azure-datalake:$interlokVersion") { changing=true }
+  interlokRuntime ("com.adaptris:interlok-azure-cosmosdb:$interlokVersion") { changing=true }
 
   interlokJavadocs group: "com.adaptris", name: "interlok-azure-mail", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
   interlokJavadocs group: "com.adaptris", name: "interlok-azure-onedrive", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
   interlokJavadocs group: "com.adaptris", name: "interlok-azure-datalake", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
+  interlokJavadocs group: "com.adaptris", name: "interlok-azure-cosmosdb", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
   interlokJavadocs group: "com.adaptris", name: "interlok-service-tester", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
 
   interlokTestRuntime ("com.adaptris:interlok-service-tester:$interlokVersion") { changing=true }
