@@ -1,0 +1,8 @@
+{
+  "name" : "azure-testing",
+  "variableSets" : { },
+  "uidInXincludeCompntListFileName" : false,
+  "additionalFiles" : { },
+  "optionalComponentsInUse" : [ ],
+  "structured" : true
+}

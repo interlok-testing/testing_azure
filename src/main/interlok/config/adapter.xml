@@ -1,0 +1,304 @@
+<adapter>
+  <unique-id>localhost</unique-id>
+  <start-up-event-imp>com.adaptris.core.event.StandardAdapterStartUpEvent</start-up-event-imp>
+  <heartbeat-event-imp>com.adaptris.core.HeartbeatEvent</heartbeat-event-imp>
+  <shared-components>
+    <connections>
+      <azure-graph-api-connection>
+        <unique-id>azure-graph-api-connection</unique-id>
+        <application-id>1ada9f84-0aef-4fe7-b3dc-b5221293ad41</application-id>
+        <tenant-id>4a744119-229d-43d2-b6fc-d817cf67b343</tenant-id>
+        <client-secret>15df5ba80171c934e5e58050bd7279f9</client-secret>
+      </azure-graph-api-connection>
+      <azure-data-lake-connection>
+        <unique-id>azure-datalake-connection</unique-id>
+        <application-id>1ada9f84-0aef-4fe7-b3dc-b5221293ad41</application-id>
+        <tenant-id>4a744119-229d-43d2-b6fc-d817cf67b343</tenant-id>
+        <client-secret>15df5ba80171c934e5e58050bd7279f9</client-secret>
+        <account>datalake-user@example.com</account>
+      </azure-data-lake-connection>
+    </connections>
+    <services>
+      <log-message-service>
+        <unique-id>log-payload</unique-id>
+        <log-level>DEBUG</log-level>
+        <logging-format class="message-logging-with-payload"/>
+      </log-message-service>
+    </services>
+  </shared-components>
+  <event-handler class="default-event-handler">
+    <unique-id>DefaultEventHandler</unique-id>
+    <connection class="null-connection">
+      <unique-id>elated-montalcini</unique-id>
+    </connection>
+    <producer class="null-message-producer">
+      <unique-id>elated-perlman</unique-id>
+    </producer>
+  </event-handler>
+  <message-error-handler class="null-processing-exception-handler">
+    <unique-id>cranky-clarke</unique-id>
+  </message-error-handler>
+  <failed-message-retrier class="no-retries">
+    <unique-id>pensive-goldberg</unique-id>
+  </failed-message-retrier>
+  <channel-list>
+    <channel>
+      <consume-connection class="shared-connection">
+        <lookup-name>azure-graph-api-connection</lookup-name>
+      </consume-connection>
+      <produce-connection class="shared-connection">
+        <lookup-name>azure-graph-api-connection</lookup-name>
+      </produce-connection>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="azure-one-drive-consumer">
+            <unique-id>one-drive-consumer</unique-id>
+            <poller class="fixed-interval-poller">
+              <poll-interval>
+                <unit>MINUTES</unit>
+                <interval>1</interval>
+              </poll-interval>
+            </poller>
+            <username>one-drive-user@example.com</username>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>evil-goldwasser</unique-id>
+            <services>
+              <shared-service>
+                <unique-id>log-payload</unique-id>
+                <lookup-name>log-payload</lookup-name>
+              </shared-service>
+            </services>
+          </service-collection>
+          <producer class="azure-one-drive-producer">
+            <unique-id>one-drive-producer</unique-id>
+            <username>another-user@example.com</username>
+            <filename>%message{%uniqueId}</filename>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>one-drive-workflow</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>one-drive-workflow-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>one-drive-workflow-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+        <standard-workflow>
+          <consumer class="azure-office-365-mail-consumer">
+            <unique-id>outlook-consumer</unique-id>
+            <poller class="fixed-interval-poller">
+              <poll-interval>
+                <unit>MINUTES</unit>
+                <interval>1</interval>
+              </poll-interval>
+            </poller>
+            <username>outlook-user@example.com</username>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>adoring-swanson</unique-id>
+            <services>
+              <shared-service>
+                <unique-id>log-payload</unique-id>
+                <lookup-name>log-payload</lookup-name>
+              </shared-service>
+            </services>
+          </service-collection>
+          <producer class="azure-office-365-mail-producer">
+            <unique-id>outlook-producer</unique-id>
+            <username>outlook-user@example.com</username>
+            <subject>Re: %message{Subject} from %message{From}</subject>
+            <to-recipients>another-user@example.com</to-recipients>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>outlook-workflow</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>outlook-workflow-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>outlook-workflow-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+        <standard-workflow>
+          <consumer class="null-message-consumer">
+            <unique-id>null-consumer</unique-id>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>ecstatic-ride</unique-id>
+            <services>
+              <azure-one-drive-document-upload-service>
+                <unique-id>one-drive-upload</unique-id>
+                <connection class="shared-connection">
+                  <lookup-name>azure-graph-api-connection</lookup-name>
+                </connection>
+                <username>one-drive-user@example.com</username>
+                <filename>%message{%uniqueId}</filename>
+              </azure-one-drive-document-upload-service>
+            </services>
+          </service-collection>
+          <producer class="null-message-producer">
+            <unique-id>null-producer</unique-id>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>one-drive-push-workflow</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>one-drive-push-workflow-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>one-drive-push-workflow-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+        <standard-workflow>
+          <consumer class="null-message-consumer">
+            <unique-id>null-consumer</unique-id>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>suspicious-knuth</unique-id>
+            <services>
+              <azure-one-drive-document-download-service>
+                <unique-id>one-drive-download</unique-id>
+                <connection class="shared-connection">
+                  <lookup-name>azure-graph-api-connection</lookup-name>
+                </connection>
+                <username>one-drive-user@example.com</username>
+                <filename>some-remote-file</filename>
+              </azure-one-drive-document-download-service>
+            </services>
+          </service-collection>
+          <producer class="null-message-producer">
+            <unique-id>null-producer</unique-id>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>one-drive-pull-workflow</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>one-drive-pull-workflow-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>one-drive-pull-workflow-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>azure-graph-api-tests</unique-id>
+    </channel>
+    <channel>
+      <consume-connection class="shared-connection">
+        <lookup-name>azure-datalake-connection</lookup-name>
+      </consume-connection>
+      <produce-connection class="shared-connection">
+        <lookup-name>azure-datalake-connection</lookup-name>
+      </produce-connection>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="azure-data-lake-consumer">
+            <unique-id>datalake-consumer</unique-id>
+            <poller class="fixed-interval-poller">
+              <poll-interval>
+                <unit>MINUTES</unit>
+                <interval>1</interval>
+              </poll-interval>
+            </poller>
+            <file-system>example-fs</file-system>
+            <path>/in/</path>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>cranky-khorana</unique-id>
+            <services>
+              <shared-service>
+                <unique-id>log-payload</unique-id>
+                <lookup-name>log-payload</lookup-name>
+              </shared-service>
+            </services>
+          </service-collection>
+          <producer class="azure-data-lake-producer">
+            <unique-id>datalake-producer</unique-id>
+            <file-system>example-fs</file-system>
+            <path>/out/</path>
+            <filename>%message{%uniqueId}</filename>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>datalake-workflow</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>datalake-workflow-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>datalake-workflow-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>azure-datalake-tests</unique-id>
+    </channel>
+    <channel>
+      <consume-connection class="null-connection">
+        <unique-id>pedantic-colden</unique-id>
+      </consume-connection>
+      <produce-connection class="null-connection">
+        <unique-id>hungry-lumiere</unique-id>
+      </produce-connection>
+      <workflow-list>
+        <standard-workflow>
+          <consumer class="null-message-consumer">
+            <unique-id>focused-albattani</unique-id>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>dreamy-allen</unique-id>
+            <services>
+              <cosmosdb-authorization-header>
+                <unique-id>cosmos db service</unique-id>
+                <http-verb>GET</http-verb>
+                <master-key>NWJjMTgzYWItZjkyNS00YWQwLTlkNzMtZjc4NmU0YzQzYjAxCg==</master-key>
+                <resource-type>dbs</resource-type>
+                <resource-id>dbs/MyDatabase/colls/MyCollection</resource-id>
+              </cosmosdb-authorization-header>
+            </services>
+          </service-collection>
+          <producer class="null-message-producer">
+            <unique-id>fervent-payne</unique-id>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>Cosmos DB wolkflow</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>Cosmos DB wolkflow-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>Cosmos DB wolkflow-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
+      </workflow-list>
+      <unique-id>Azure Cosmos DB Tests</unique-id>
+    </channel>
+  </channel-list>
+  <message-error-digester class="standard-message-error-digester">
+    <unique-id>ErrorDigest</unique-id>
+    <digest-max-size>100</digest-max-size>
+  </message-error-digester>
+</adapter>
