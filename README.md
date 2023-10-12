@@ -1,5 +1,8 @@
 # Azure Testing
 
+[![license](https://img.shields.io/github/license/interlok-testing/testing_azure.svg)](https://github.com/interlok-testing/testing_azure/blob/develop/LICENSE)
+[![Actions Status](https://github.com/interlok-testing/testing_azure/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/interlok-testing/testing_azure/actions/workflows/gradle-build.yml)
+
 This project tests several interlok-azure components, specifically the
 connections, consumers and producers of the mail, OneDrive, and
 DataLake.
