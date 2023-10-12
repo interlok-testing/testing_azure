@@ -6,16 +6,16 @@
     <connections>
       <azure-graph-api-connection>
         <unique-id>azure-graph-api-connection</unique-id>
-        <application-id>1ada9f84-0aef-4fe7-b3dc-b5221293ad41</application-id>
-        <tenant-id>4a744119-229d-43d2-b6fc-d817cf67b343</tenant-id>
-        <client-secret>15df5ba80171c934e5e58050bd7279f9</client-secret>
+        <application-id>${application.id}</application-id>
+        <tenant-id>${tenant.id}</tenant-id>
+        <client-secret>${client.secret}</client-secret>
       </azure-graph-api-connection>
       <azure-data-lake-connection>
         <unique-id>azure-datalake-connection</unique-id>
-        <application-id>1ada9f84-0aef-4fe7-b3dc-b5221293ad41</application-id>
-        <tenant-id>4a744119-229d-43d2-b6fc-d817cf67b343</tenant-id>
-        <client-secret>15df5ba80171c934e5e58050bd7279f9</client-secret>
-        <account>datalake-user@example.com</account>
+        <application-id>${application.id}</application-id>
+        <tenant-id>${tenant.id}</tenant-id>
+        <client-secret>${client.secret}</client-secret>
+        <account>${account}</account>
       </azure-data-lake-connection>
     </connections>
     <services>

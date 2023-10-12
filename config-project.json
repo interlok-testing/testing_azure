@@ -1,6 +1,17 @@
 {
   "name" : "azure-testing",
-  "variableSets" : { },
+  "variableSets" : {
+    "default" : { }
+  },
+  "variableXpaths" : {
+    "/adapter/shared-components/connections/azure-graph-api-connection[unique-id=\"azure-graph-api-connection\"]/application-id" : "${application.id}",
+    "/adapter/shared-components/connections/azure-graph-api-connection[unique-id=\"azure-graph-api-connection\"]/tenant-id" : "${tenant.id}",
+    "/adapter/shared-components/connections/azure-graph-api-connection[unique-id=\"azure-graph-api-connection\"]/client-secret" : "${client.secret}",
+    "/adapter/shared-components/connections/azure-graph-api-connection[unique-id=\"azure-datalake-connection\"]/application-id" : "${application.id}",
+    "/adapter/shared-components/connections/azure-graph-api-connection[unique-id=\"azure-datalake-connection\"]/tenant-id" : "${tenant.id}",
+    "/adapter/shared-components/connections/azure-graph-api-connection[unique-id=\"azure-datalake-connection\"]/client-secret" : "${client.secret}",
+    "/adapter/shared-components/connections/azure-graph-api-connection[unique-id=\"azure-datalake-connection\"]/account" : "${account}"
+  },
   "uidInXincludeCompntListFileName" : false,
   "additionalFiles" : { },
   "optionalComponentsInUse" : [ ],
