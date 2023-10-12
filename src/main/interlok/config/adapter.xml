@@ -75,7 +75,6 @@
             <username>another-user@example.com</username>
             <filename>%message{%uniqueId}</filename>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>one-drive-workflow</unique-id>
           <message-metrics-interceptor>
             <unique-id>one-drive-workflow-MessageMetrics</unique-id>
@@ -115,7 +114,6 @@
             <subject>Re: %message{Subject} from %message{From}</subject>
             <to-recipients>another-user@example.com</to-recipients>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>outlook-workflow</unique-id>
           <message-metrics-interceptor>
             <unique-id>outlook-workflow-MessageMetrics</unique-id>
@@ -149,7 +147,6 @@
           <producer class="null-message-producer">
             <unique-id>null-producer</unique-id>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>one-drive-push-workflow</unique-id>
           <message-metrics-interceptor>
             <unique-id>one-drive-push-workflow-MessageMetrics</unique-id>
@@ -183,7 +180,6 @@
           <producer class="null-message-producer">
             <unique-id>null-producer</unique-id>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>one-drive-pull-workflow</unique-id>
           <message-metrics-interceptor>
             <unique-id>one-drive-pull-workflow-MessageMetrics</unique-id>
@@ -235,7 +231,6 @@
             <path>/out/</path>
             <filename>%message{%uniqueId}</filename>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>datalake-workflow</unique-id>
           <message-metrics-interceptor>
             <unique-id>datalake-workflow-MessageMetrics</unique-id>
@@ -279,7 +274,6 @@
           <producer class="null-message-producer">
             <unique-id>fervent-payne</unique-id>
           </producer>
-          <produce-exception-handler class="null-produce-exception-handler"/>
           <unique-id>Cosmos DB wolkflow</unique-id>
           <message-metrics-interceptor>
             <unique-id>Cosmos DB wolkflow-MessageMetrics</unique-id>
